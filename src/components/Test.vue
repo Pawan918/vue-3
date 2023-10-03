@@ -1,51 +1,88 @@
 <template>
-    <p>Type Something... </p>
-    <p>then Hit Enter</p>
-    <form @submit.prevent>
-        <input @keypress="submit" type="text" v-model="name"/>
+    <form>
+        <span class="margin">
+            <label :for="'firstName'">FirstName : </label>
+            <input id="firstName" v-model="firstName" />
+        </span>
+        <span class="margin">
+
+            <label for="lastName">lastName : </label>
+            <input id="lastName" v-model="lastName" />
+        </span>
+        <span class="margin">
+            <label for="address">Address : </label>
+            <input id="address" v-model="address" />
+        </span>
+        <button @click.prevent="submit">Submit</button>
     </form>
-    <ul>
-        <li v-for="(item,index) in data" :key="index">
-           <span> {{ item }} </span> 
-            <button @click.prevent="()=>{deleteHandler(index)}">Delete</button>
-            <button @click.prevent="()=>{editHandler(index)}">Edit</button>
-        </li>
-    </ul>
+    <table>
+        <tr v-for="(data,index) in data" :key="index" :class="{red : data.check}">
+            <td>{{ data.firstName }}</td>
+            <td>{{ data.lastName }}</td>
+            <td>{{ data.address }}</td>
+            <button @click="deleteHandler(index)">Delete</button>
+            <input type="checkbox"  @click="()=>{data.check = !data.check}"/>
+        </tr>
+    </table>
 </template>
 <script >
 export default {
     name: 'TestComp',
-    data (){
+    data() {
         return {
-            name : '',
-            data : [],
-            editIndex : false
+            name: '',
+            data: [],
+            firstName: '',
+            lastName: '',
+            address: '',
         }
     },
-    methods : {
+    methods: {
         submit(e) {
-            if(e.keyCode === 13){
-                if(this.editIndex){
-                    this.data.splice(this.editIndex,1,this.name)
-                    this.name = "";
-                    this.editIndex = false;
-                }else{
-                    this.data.push(this.name);
-                    this.name = ""
+            if (e.type === 'click') {
+                if (this.firstName === "" && this.lastName === "" && this.address === "") {
+                    alert('Please enter your Input first')
+                } else {
+                    let inpt = {
+                        firstName: this.firstName,
+                        lastName: this.lastName,
+                        address: this.address,
+                        check : false,
+                    }
+
+                    this.data.push(inpt);
                 }
+                this.firstName = '';
+                this.lastName = '';
+                this.address = ''
             }
         },
-        deleteHandler(index){
-                   this.data.splice(index,1);
+        deleteHandler(index) {
+            this.data.splice(index, 1);
         },
-        editHandler(index){
+        editHandler(index) {
             // this.data[index]
             this.editIndex = index;
-            this.name = this.data[index]; 
+            this.name = this.data[index];
         }
     },
 }
 </script>
 <style>
-
+.red{
+    color: red;
+}
+.margin {
+    margin: 0px 15px;
+}
+table{
+    margin-top: 20px;
+    width: 800px;
+    border-collapse: collapse;
+}
+td{
+    border: 2px solid black;
+    text-align: left;
+    padding: 5px 20px;
+}
 </style>
