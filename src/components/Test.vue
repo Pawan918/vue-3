@@ -1,5 +1,5 @@
 <template>
-    <div class="testing">
+    <div   :class="{red : isActive}">
         {{ name }} !!Testing
         <div class="date">
             {{ date }}
@@ -8,6 +8,7 @@
     <input type="text" v-model="name"/>
     <button @click="makeCapital">makeCapital</button>
     <button @click="clear">Clear</button>
+    <button @click="activeHandler">Active</button>
 </template>
 <script >
 export default {
@@ -16,6 +17,7 @@ export default {
         return {
             name : 'Pawan Kumar',
             date : false,
+            isActive : false,
         }
     },
     methods : {
@@ -24,6 +26,9 @@ export default {
         },
         clear: function(){
             this.name = "";
+        },
+        activeHandler(){
+            this.isActive = !this.isActive
         }
     },
     // onMounted(()=>{
@@ -45,3 +50,8 @@ export default {
 
 }
 </script>
+<style>
+.red{
+    color: red;
+}
+</style>
