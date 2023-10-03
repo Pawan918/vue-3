@@ -11,10 +11,7 @@
     <button @click="activeHandler">Active</button>
     <div class="">Selected : {{ color_val.color }}</div>
     <select v-model="color_val">
-        <option disabled value="">Please select one</option>   
-        <option :value="{color: 'red'}">red</option>
-        <option :value="{color : 'blue'}">Blue</option>
-        <option :value="{color : 'green'}">Green</option>
+        <option v-for="(color,index) in color" :key="index" :value="{color}">{{ color }}</option>
     </select>
 </template>
 <script >
@@ -25,6 +22,7 @@ export default {
             name : 'Pawan Kumar',
             date : false,
             isActive : false,
+            color : ['red','blue','green','orange'],
             color_val : 'white',
         }
     },
