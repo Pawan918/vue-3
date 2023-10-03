@@ -6,7 +6,7 @@
     <button @click="makeCapital">makeCapital</button>
     <button @click="clear">Clear</button>
 </template>
-<script>
+<script >
 export default {
     name: 'TestComp',
     data : ()=>{
@@ -21,6 +21,21 @@ export default {
         clear: function(){
             this.name = "";
         }
+    },
+    // onMounted(()=>{
+    //     console.log('mounted');
+    // })
+    mounted (){
+        console.log('mounted')
+    },
+    created (){
+        console.log('created')
+    },
+    updated (){
+        console.log('updated')
+    },
+    destroyed (){
+        console.log('destroyed')
     }
 
 }
