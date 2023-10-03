@@ -1,6 +1,9 @@
 <template>
     <div class="testing">
         {{ name }} !!Testing
+        <div class="date">
+            {{ date }}
+        </div>
     </div>
     <input type="text" v-model="name"/>
     <button @click="makeCapital">makeCapital</button>
@@ -12,6 +15,7 @@ export default {
     data : ()=>{
         return {
             name : 'Pawan Kumar',
+            date : false,
         }
     },
     methods : {
@@ -29,7 +33,8 @@ export default {
         console.log('mounted')
     },
     created (){
-        console.log('created')
+        console.log('created');
+        this.date = new Date();
     },
     updated (){
         console.log('updated')
