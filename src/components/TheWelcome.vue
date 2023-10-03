@@ -6,8 +6,9 @@
 // import CommunityIcon from './icons/IconCommunity.vue'
 // import SupportIcon from './icons/IconSupport.vue'
 import Test from './Test.vue'
+
 </script>
 
 <template>
-  <Test/>
+  <!-- <Test/> -->
 </template>
