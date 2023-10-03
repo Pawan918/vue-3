@@ -1,5 +1,5 @@
 <template>
-    <div   :class="{red : isActive}">
+    <div   :style="{color : color_val.color}">
         {{ name }} !!Testing
         <div class="date">
             {{ date }}
@@ -9,6 +9,13 @@
     <button @click="makeCapital">makeCapital</button>
     <button @click="clear">Clear</button>
     <button @click="activeHandler">Active</button>
+    <div class="">Selected : {{ color_val.color }}</div>
+    <select v-model="color_val">
+        <option disabled value="">Please select one</option>   
+        <option :value="{color: 'red'}">red</option>
+        <option :value="{color : 'blue'}">Blue</option>
+        <option :value="{color : 'green'}">Green</option>
+    </select>
 </template>
 <script >
 export default {
@@ -18,6 +25,7 @@ export default {
             name : 'Pawan Kumar',
             date : false,
             isActive : false,
+            color_val : 'white',
         }
     },
     methods : {
