@@ -1,7 +1,8 @@
 <template>
     <div class="testing">
-        {{ name }}
+        {{ name }} !!Testing
     </div>
+    <input type="text" v-model="name"/>
 </template>
 <script>
 export default {
