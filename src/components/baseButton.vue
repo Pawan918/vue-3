@@ -1,7 +1,5 @@
 <template>
-    <button :style="{backgroundColor,color: text}" @click="clickHandler">
-        {{ name }}
-    </button>
+    
 </template>
 <script >
 export default {
