@@ -8,6 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "pretty-checkbox": "^3.0.3",
     "scss": "^0.2.4",
     "usemodal-vue3": "^0.3.7",
     "vue": "^3.3.4",

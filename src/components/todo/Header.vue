@@ -3,7 +3,7 @@
         <div class="header-title">
             Today
         </div>
-        <div class="header-addItem">
+        <div class="header-addItem" @click="addButtonHandler">
             <span class="header-addItem__svg">
                 <img src="./../../assets/bi_plus-circle.svg">
             </span>
@@ -18,9 +18,14 @@ export default{
     components : {
         TodoCircle
     },
+    emits : ['addButtonHandler'],
     data(){
         return {
-            // TodoSvg : require('./../../assets/bi_plus-circle.svg')
+        }
+    },
+    methods : {
+        addButtonHandler(){
+            this.$emit('addButtonHandler')
         }
     }
 }
