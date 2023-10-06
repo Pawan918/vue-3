@@ -4,11 +4,18 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import Test from './components/Test.vue'
 import Home from './components/Home.vue'
+import TestChildren from './components/TestChildren.vue'
 import { createRouter,createWebHistory } from 'vue-router';
 const routes = [
     {
         path : '/test/:id',
-        component : Test 
+        component : Test ,
+        children : [
+            {
+                path : 'child',
+                component : TestChildren,
+            }
+        ]
     },
     {
         path : '/',

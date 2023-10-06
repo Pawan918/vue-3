@@ -1,6 +1,7 @@
 <template>
     <div class="">
         Test{{ username }}
+        <router-view></router-view>
     </div>
 </template>
 <script >
