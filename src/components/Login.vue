@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <button class="logout" @click="logout">Logout</button>
-        Login
+        <p>{{ this.$route.params.name }}</p>
     </div>
 </template>
 <script>

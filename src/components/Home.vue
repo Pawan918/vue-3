@@ -34,7 +34,13 @@ export default {
             if(this.name === '' || this.password === ''){
                 alert('Please enter Username and Password to login')
             }else{
-                this.$router.push('/login')
+
+                if(this.$store.getters.login(this.name,this.password)){
+                    console.log('true')
+                    this.$router.push(`/login/${this.name}`)
+                }else{
+                    console.log('false')
+                }
     
             }
             this.name = '',

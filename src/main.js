@@ -5,6 +5,7 @@ import App from './App.vue'
 import Home from './components/Home.vue'
 import Login from './components/Login.vue'
 import Logout from './components/Logout.vue'
+import store from './store/store'
 
 import { createRouter,createWebHistory } from 'vue-router';
 const routes = [
@@ -13,7 +14,7 @@ const routes = [
         component : Home
     },
     {
-        path : '/login',
+        path : '/login/:name',
         component : Login
     },
     {
@@ -26,4 +27,4 @@ const router = createRouter({
     routes
 })
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).use(store).mount('#app')
