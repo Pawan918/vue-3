@@ -11,6 +11,7 @@
 import Header from './todo/Header.vue'
 import ListItem from './todo/ListItem.vue'
 import ListAdd from './todo/ListAdd.vue'
+import { mapMutations, mapState } from 'vuex'
 export default {
     name: "testTemp",
     components : {
@@ -21,22 +22,26 @@ export default {
     data(){
         return{
             isTodoAdd : false,
-            data : ['Start Making a Presentation','Pay a rent','Buy a milk',],
+            // data : ['Start Making a Presentation','Pay a rent','Buy a milk',],
         }
     },
+    computed : mapMutations(['addData','deleteData']),
+    computed : mapState(['data']),
     methods : {
         addButtonHandler(){
             this.isTodoAdd = true;
         },
         listHandler(val){
-            this.data.push(val);
+            // this.data.push(val);
+            this.$store.commit('addData',val)
             this.isTodoAdd=false;
         },
         cancelButtonHandler(){
             this.isTodoAdd= false;
         },
         deleteClickHandler(index){
-            this.data.splice(index,1)
+            // this.data.splice(index,1)
+            this.$store.commit('deleteData',index);
         }
     }
 }

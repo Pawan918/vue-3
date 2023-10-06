@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import TodoCircle from '../icons/TodoCircle.vue';
+// import TodoCircle from '../icons/TodoCircle.vue';
 
 export default{
-    components : {
-        TodoCircle
-    },
+    // components : {
+    //     TodoCircle
+    // },
     emits : ['addButtonHandler'],
     data(){
         return {
